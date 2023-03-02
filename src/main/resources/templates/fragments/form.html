@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<div th:fragment="form-photo">
+		<div class="mb-3 col-5">
+			<label for="title" class="form-label">Titolo</label>
+			<input type="text" id="title" th:field="*{title}" class="form-control" th:errorClass="is-invalid">
+		</div>
+		<div class="mb-3 col-5">
+			<label for="description" class="form-label">Descrizione</label>
+			<textarea id="description" th:field="*{description}" class="form-control" th:errorClass="is-invalid"></textarea>
+		</div>
+		<div class="mb-3 col-5">
+			<label for="url" class="form-label">Url</label>
+			<input type="text" id="url" th:field="*{url}" class="form-control" th:errorClass="is-invalid">
+		<div class="mb-3 col-5">	
+			<label for="tag" class="form-label">Tag</label>
+			<input type="text" id="tag" th:field="*{tag}" class="form-control" th:errorClass="is-invalid">
+		</div>
+		<div class="mb-3 col-5">	
+			<label for="tag" class="form-label">Tag</label>
+			<input type="text" id="tag" th:field="*{tag}" class="form-control" th:errorClass="is-invalid">
+		</div>
+		<div class="mb-3 col-5">	
+			<label for="visible" class="form-label">Visibile</label>
+			<select id="visible" th:field="*{visible}">
+				<option value="1" th:text="'Visibile'"></option>
+				<option value="0" th:text="'Non Visibile'"></option>
+			</select>
+		</div>
+		<button type="submit" class="btn btn-primary">Salva</button>
+	</div>
+	
+	
+</body>
+</html>

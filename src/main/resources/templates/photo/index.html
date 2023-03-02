@@ -17,7 +17,7 @@
 				<input type="submit" value="SEARCH">
 			</form>
 		</div>
-		
+		<div class="col-6 text-end">Crea una nuova Foto <a href="photo/create"  class="btn btn-primary">Crea</a></div>
 	</div>
 	<table th:if="${photos.size()>0}" class="text-center table table-success table-striped">
 		<tr>
@@ -26,7 +26,7 @@
 			<th class="col-3">Url</th>
 			<th class="col-3">Tag</th>
 			<th class="col-3">Visibile</th>
-
+			<th class="col-3">Bottone</th>
 		</tr>
 	
 		<tr  th:each = "photo : ${photos}" th:object="${photo}">
@@ -37,7 +37,12 @@
 			</td>
 			<td  th:text = "*{tag}"></td>
 			<td  th:text = "*{visible}"></td>
-
+			<td >
+				<a th:href="'photo/edit/' + *{id}"  class="btn btn-primary">Modifica</a>
+				<form action="#" th:action="@{'photo/delete/' + *{id}}" method="post" class="mt-2">
+					<button type="submite" class="btn btn-danger">Elimina</button>
+				</form>
+			</td>
 		</tr>
 	</table>
 	<h3 th:if="${photos.size()==0}" class="text-center">Non ci sono pizze al momento</h3>

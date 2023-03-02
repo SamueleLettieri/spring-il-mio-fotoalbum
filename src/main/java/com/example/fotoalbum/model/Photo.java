@@ -85,7 +85,7 @@ public class Photo {
 	}
 
 
-	public void setVisibile(Boolean visible) {
+	public void setVisible(Boolean visible) {
 		this.visible = visible;
 	} 
 	
