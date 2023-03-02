@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<div th:replace="~{fragments/bootstrap :: head}"></div>
+<title>Insert title here</title>
+</head>
+<body>
+
+<div class="container">
+	<h1 class="text-center mt-3 mb-5">Foto</h1>
+	<div class="row mb-3">
+		<div class="col-6">
+			<form action="/">
+				<label>Nome: </label>
+				<input type="text" name="keyword" >
+				<input type="submit" value="SEARCH">
+			</form>
+		</div>
+		
+	</div>
+	<table th:if="${photos.size()>0}" class="text-center table table-success table-striped">
+		<tr>
+			<th class="col-3">Titolo</th>
+			<th class="col-3">Descrizione</th> 
+			<th class="col-3">Url</th>
+			<th class="col-3">Tag</th>
+			<th class="col-3">Visibile</th>
+
+		</tr>
+	
+		<tr  th:each = "photo : ${photos}" th:object="${photo}">
+			<td ><a th:text = "*{title}" th:href="'photo/'+*{id}"></td>
+			<td  th:text = "*{description}"></td>
+			<td >
+				<img alt="" th:src="*{url}" class="w-50" >
+			</td>
+			<td  th:text = "*{tag}"></td>
+			<td  th:text = "*{visible}"></td>
+
+		</tr>
+	</table>
+	<h3 th:if="${photos.size()==0}" class="text-center">Non ci sono pizze al momento</h3>
+ 
+</div>
+
+<div th:replace="~{fragments/bootstrap :: script}"></div>
+</body>
+</html>
