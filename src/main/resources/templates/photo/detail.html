@@ -18,6 +18,15 @@
 		<h4 th:text = "${photo.description}" class="mt-3"></h4>
 		<h2 class="mt-3">Tag:</h2>
 		<h4 th:text = "${photo.tag}" class="mt-3"></h4>
+		<div class="row mt-3">
+			<h2 class="col-6">Categorie:</h2>                                    
+			<div class="col-6">Vai alla paggina della <a href="/category" class="btn btn-primary">Categorie</a></div>
+		</div>	
+		<div class="row mt-3">
+			<div th:each = "category : ${photo.categories}" class="col-2">
+				<h4 th:text = "${category.name} + ','"></h4>
+			</div>
+		</div>
 	</div>
  
 </div>
