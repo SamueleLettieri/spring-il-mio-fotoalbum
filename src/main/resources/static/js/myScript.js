@@ -11,19 +11,25 @@ function elencoPhoto(){
             document.querySelector("#photo").innerHTML += `
                 <div id="selezione" class="ls_pad card col-3 mx-4">
                     <img class=" card-img-top" src="${photo.url}" alt="Card image cap">
-                    <div class="card-body p-3 row text-center justify-content-center">
-                    	<div class="col-12">
-	                        <h5 class="card-title title">${photo.title}</h5>
-	                        <p class="card-text">${photo.description}</p>
-	                        <h6 class="tags">${photo.tag}</h6>
-	                    </div>    
-	                    <div class="row text-center align-items-end  mt-3">
-                            <div class="col-12"><a href="/frontend/show?id=${photo.id}" class="btn btn-primary">Dettagli</a></div>
+                    <div class="card-body p-3">
+                        <h5 class="card-title title">${photo.title}</h5>
+                        <p class="card-text">${photo.description}</p>
+                        <h6 class="tags">${photo.tag}</h6>
+                            <a href="./detail.html?id=${photo.id}" class="btn btn-primary">Dettagli</a>
                         </div>
                     </div>
                 </div>
 
             `;
+
+            // seleziona l'elemento a cui vuoi aggiungere la classe d-none
+            const element = document.getElementById("selezione");
+            console.log(photo.visible);
+            // controlla se la condizione è falsa
+            if (photo.visible === false) {
+                // se la condizione è falsa, aggiungi la classe d-none all'elemento
+                element.classList.add("d-none");
+            }
         });
     }).catch((error) => {
         console.warn(error)
