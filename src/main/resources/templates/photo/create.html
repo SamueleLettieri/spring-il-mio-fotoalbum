@@ -9,18 +9,19 @@
 
 <div th:replace="~{fragments/bootstrap :: navbar}"></div>
 
-<div class="container">
-	<h1 class="text-center mt-5">Crea la tua Foto</h1>
- 
-
- 
-	<form id="foto-form" th:object="${photo}"  th:action="@{/photo/create}" method="post" class="mt-3">
-		
-		<div th:replace="~{fragments/form :: form-photo}"></div>
-		
-	</form>
-</div>
+<main>
+	<div class="container">
+		<h1 class="text-center mt-5">Crea la tua Foto</h1>
+	 
 	
+	 
+		<form id="foto-form" th:object="${photo}"  th:action="@{/photo/create}" method="post" class="mt-3">
+			
+			<div th:replace="~{fragments/form :: form-photo}"></div>
+			
+		</form>
+	</div>
+</main>
 <div th:replace="~{fragments/bootstrap :: script}"></div>
 </body>
 </html>

@@ -1,5 +1,9 @@
-.ls_body{
+body{
     background-color: rgba(0, 0, 0, 0.4) !important;
+}
+
+main{
+    height: 81.5vh;
 }
 
 .ls_pad {
@@ -15,7 +19,7 @@
     width: 498px;
     object-fit: fill;
     object-position: center;
-    height: 620px;
+    height: 615px;
 }
 
 .ls_box{
@@ -44,7 +48,7 @@
 }
 
 .ls_sfondo{
-    height: 134px;
+    height: 130px;
     background-color: rgba(146, 146, 146, 0.4) !important;
     overflow: auto;
     border-radius: 1%;
@@ -58,3 +62,19 @@
 }
 
 
+.ls_list{
+    list-style-type: none;
+}
+
+footer{
+    background-color: black;
+    height: 10vh;
+    font-size: 35px;
+    position: relative;
+    bottom: -20px;
+}
+
+
+.ls_link{
+    color: white;
+}
