@@ -44,9 +44,11 @@ function addComment(photoId) {
         console.log(response.data);
         document.querySelector("#username").value = "";
         document.querySelector("#text").value = "";
+        location.href = `/frontend/show?id=${photoId}`;
     })
       .catch(error => {
         console.error("Errore nella richiesta", error);
+        location.href = `/frontend/show?id=${photoId}`;
     });
     
 }

@@ -25,7 +25,6 @@ public class SecurityConfiguration {
 	
 			.requestMatchers("/category", "/category/**").hasAuthority("ADMIN")
 	
-			
 			.requestMatchers("/frontend", "/frontend/**").hasAnyAuthority("USER", "ADMIN")
 	
 			.requestMatchers("/**").permitAll()
