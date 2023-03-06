@@ -48,7 +48,6 @@ function addComment(photoId) {
     })
       .catch(error => {
         console.error("Errore nella richiesta", error);
-        location.href = `/frontend/show?id=${photoId}`;
     });
     
 }

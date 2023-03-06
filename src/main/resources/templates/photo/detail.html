@@ -2,7 +2,9 @@
 <html xmlns="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
+
 <div th:replace="~{fragments/bootstrap :: head}"></div>
+
 <title>Insert title here</title>
 </head>
 <body class="ls_body">
@@ -27,7 +29,7 @@
                         </div>
 
                         <div class="row mt-3">
-                            <h6 class="col-4"><a href="/category">Categorie:</a></h6>                                    
+                            <h6 class="col-4">Categorie:</h6>                                    
                             <div id="categorie" class="col-3" th:each = "category : ${photo.categories}">
                                 <h6 th:text = "${category.name} + ','"></h6>
                             </div>
@@ -36,13 +38,14 @@
                             <h6 class="mt-3 col-4">Tag:</h6>
                             <h6 id="tag" class="mt-3 col-3" th:text = "${photo.tag}"></h6>
                         </div> 
-                        <div class="row mt-3">
-                            <h6 class="mt-3 col-4">Commenti:</h6>
-                            <div th:each = "comment : ${photo.comments}">
-                            	<h4 class="mt-3 col-3" th:text="${comment.username}"></h4>
-        						<h5 class="mt-3 col-3" th:text="${comment.text}"></h5>
+ 
+                           <h5 class="mt-2 ">Commenti:</h5>
+                          <div class="row ls_sfondo ls_sfondo_d">
+                            <div id="commenti" th:each = "comment : ${photo.comments}">
+                            	<h6 class="ls_m ls_size" th:text="${comment.username}"></h6>
+        						<p class="le_text"  th:text="${comment.text}"></p>
                             </div>
-                        </div>    
+                        </div>
                     </div>
                 </div>
             </div>

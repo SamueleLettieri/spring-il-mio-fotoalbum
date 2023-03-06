@@ -1,3 +1,4 @@
+/*
 package com.example.fotoalbum.restController;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,3 +26,4 @@ public class CommentRestController {
 	
 	
 }
+*/
