@@ -6,45 +6,34 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-<div class="container">
-	<h1 class="text-center mt-3 mb-5">Foto</h1>
-	<div class="row mb-3">
-		<div class="col-6">
-			<form action="/">
-				<label>Nome: </label>
-				<input type="text" name="keyword" >
-				<input type="submit" value="SEARCH">
-			</form>
-		</div>
-		<div class="col-6 text-end">Crea una nuova Foto <a href="photo/create"  class="btn btn-primary">Crea</a></div>
-	</div>
-	<table th:if="${photos.size()>0}" class="text-center table table-success table-striped">
-		<tr>
-			<th class="col-3">Titolo</th>
-			<th class="col-3">Descrizione</th> 
-			<th class="col-3">Url</th>
-			<th class="col-3">Tag</th>
-			<th class="col-3">Visibile</th>
-			<th class="col-3">Bottone</th>
-		</tr>
+	<div th:replace="~{fragments/bootstrap :: navbar}"></div>
 	
-		<tr  th:each = "photo : ${photos}" th:object="${photo}">
-			<td ><a th:text = "*{title}" th:href="'photo/'+*{id}"></td>
-			<td  th:text = "*{description}"></td>
-			<td >
-				<img alt="" th:src="*{url}" class="w-50" >
-			</td>
-			<td  th:text = "*{tag}"></td>
-			<td  th:text = "*{visible}"></td>
-			<td >
-				<a th:href="'photo/edit/' + *{id}"  class="btn btn-primary">Modifica</a>
-				<form action="#" th:action="@{'photo/delete/' + *{id}}" method="post" class="mt-2">
-					<button type="submite" class="btn btn-danger">Elimina</button>
-				</form>
-			</td>
-		</tr>
-	</table>
+    <main th:if="${photos.size()>0}">
+        <div class="container">
+            <h1 class="text-center m-4">Foto</h1>
+            <div class="row justify-content-center" id="photo">
+                <div id="selezione" class="ls_pad card col-3 mx-4" th:each = "photo : ${photos}" th:object="${photo}">
+                    <img class=" card-img-top" th:src="*{url}" alt="Card image cap">
+                    <div class="card-body p-3 row text-center justify-content-center">
+                    	<div class="col-12">
+	                        <h4 class="card-title title" th:text = "*{title}"></h4>
+	                        <p class="card-text" th:text = "*{description}"></p>
+	                        <h6 class="tags" th:text = "*{tag}"></h6>
+	                     </div>   
+                        <div class="row text-center align-items-end  mt-3">
+	                         <div class="col-6"><a th:href="'photo/'+*{id}" class="btn btn-primary">Dettagli</a></div>
+	                         <div class="col-6"><a th:href="'photo/edit/' + *{id}"  class="btn btn-primary">Modifica</a></div>
+					   		<form action="#" th:action="@{'photo/delete/' + *{id}}" method="post" class="mt-2 text-center">
+								<button type="submite" class="btn btn-danger">Elimina</button>
+							</form>
+						</div>	
+                  	</div>
+                 </div>
+            </div>
+        </div>
+    </main>
+				
+
 	<h3 th:if="${photos.size()==0}" class="text-center">Non ci sono foto al momento</h3>
  
 </div>

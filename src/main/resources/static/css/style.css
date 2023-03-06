@@ -1,0 +1,60 @@
+body{
+    background-color: rgba(0, 0, 0, 0.4) !important;
+}
+
+.ls_pad {
+    padding: 0 !important;
+}
+
+.ls_right{
+    background-color: white;
+}
+
+
+.ls_img {
+    width: 498px;
+    object-fit: fill;
+    object-position: center;
+    height: 600px;
+}
+
+.ls_box{
+     box-shadow: 10px  10px 8px #dedede,
+                 10px -10px 8px #dedede;
+}
+
+.ls_w{
+    width: 37.666667% !important;
+}
+
+.ls_box_l{
+    box-shadow:  10px  10px 8px #dedede,
+        -10px -10px 8px #dedede,
+        10px -10px 8px #dedede,
+        -10px  10px 8px #dedede;
+}
+
+
+.ls_m{
+    margin: 0 !important;
+}
+
+.ls_size{
+    font-size: 13px;
+}
+
+.ls_sfondo{
+    height: 134px;
+    background-color: rgba(146, 146, 146, 0.4) !important;
+    overflow: auto;
+    border-radius: 1%;
+}
+
+.le_text{
+    display: inline-block;
+    padding: 5px 20px 5px 10px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+

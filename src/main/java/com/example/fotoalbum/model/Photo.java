@@ -1,13 +1,18 @@
 package com.example.fotoalbum.model;
 
+
+
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -45,10 +50,24 @@ public class Photo {
 	@NotNull(message = "la visibilità non puo essere nulla")
 	@Column(nullable = false)
 	private Boolean visible;
-
+	
+	@OneToMany(mappedBy = "photo", cascade = CascadeType.REMOVE )
+	private List<Comment> comments;
+	
 	@ManyToMany
 	private List<Category> categories;
 	
+
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+
 
 	public List<Category> getCategories() {
 		return categories;

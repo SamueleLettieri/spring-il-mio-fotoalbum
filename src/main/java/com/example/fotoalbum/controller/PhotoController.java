@@ -22,7 +22,7 @@ import com.example.fotoalbum.repository.PhotoRepository;
 import jakarta.validation.Valid;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/photo")
 public class PhotoController {
 
 	private @Autowired PhotoRepository photoRepository;
