@@ -9,5 +9,7 @@ import com.example.fotoalbum.model.Photo;
 public interface PhotoRepository extends JpaRepository<Photo, Integer>{
 
 	public List<Photo> findByTitleLike(String keyword);
+	 
+	public List<Photo> findByTagLike(String tag);
 	
 }

@@ -30,11 +30,15 @@ public class PhotoController {
 	private @Autowired CategoryRepository categoryRepository;
 	
 	@GetMapping
-	public String index(@RequestParam(name ="keyword", required = false) String keyword, Model model) {
+	public String index(@RequestParam(name ="keyword", required = false) String keyword, @RequestParam(name = "tag", required = false) String tag,Model model) {
 		List<Photo> p;
 		
 		if (keyword!=null && !keyword.isEmpty()) {
 			p = photoRepository.findByTitleLike("%" + keyword + "%");
+			
+		} else if (tag != null && !tag.isEmpty()) {
+			p = photoRepository.findByTagLike("%" + tag + "%");
+
 		} else {
 			p = photoRepository.findAll();
 		}
