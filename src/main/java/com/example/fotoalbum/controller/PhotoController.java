@@ -44,7 +44,7 @@ public class PhotoController {
 	}
 	
 	
-	@GetMapping("photo/{id}")
+	@GetMapping("/{id}")
 	public String detail(@PathVariable("id") Integer id, Model model) {
 		Optional<Photo> p = photoRepository.findById(id);
 		
@@ -57,7 +57,7 @@ public class PhotoController {
 	}
 	
 	
-	@GetMapping("photo/create")
+	@GetMapping("/create")
 	public String create(Model model) {
 		Photo p = new Photo();
 		List<Category> c = categoryRepository.findAll();
@@ -67,7 +67,7 @@ public class PhotoController {
 		return "photo/create";
 	}
 	
-	@PostMapping("photo/create")
+	@PostMapping("/create")
 	public String store(@Valid @ModelAttribute("photo") Photo formPotho, BindingResult bindingResult, Model model) {
 		
 		if (bindingResult.hasErrors()) {
@@ -75,10 +75,10 @@ public class PhotoController {
 		}
 		
 		photoRepository.save(formPotho);
-		return "redirect:/";
+		return "redirect:/photo";
 	}
 	
-	@GetMapping("photo/edit/{id}")
+	@GetMapping("/edit/{id}")
 	public String edit(@PathVariable("id") Integer id, Model model) {
 		Optional<Photo> p = photoRepository.findById(id);
 		
@@ -94,7 +94,7 @@ public class PhotoController {
 		return "photo/edit";
 	}
 	
-	@PostMapping("photo/edit/{id}")
+	@PostMapping("/edit/{id}")
 	public String update(@Valid @ModelAttribute("photo") Photo formPhoto, BindingResult bindingResult, Model model) {
 		
 		if (bindingResult.hasErrors()) {
@@ -102,13 +102,13 @@ public class PhotoController {
 		}
 		
 		photoRepository.save(formPhoto);
-		return "redirect:/";
+		return "redirect:/photo";
 	}
 	
-	@PostMapping("photo/delete/{id}")
+	@PostMapping("/delete/{id}")
 	public String delete(@PathVariable("id") Integer id) {
 		photoRepository.deleteById(id);
-		return "redirect:/";
+		return "redirect:/photo";
 	}
 	
 }

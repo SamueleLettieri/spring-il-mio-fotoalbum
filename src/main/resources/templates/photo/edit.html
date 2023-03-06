@@ -7,10 +7,11 @@
 </head>
 <body>
 
+<div th:replace="~{fragments/bootstrap :: navbar}"></div>
+
 <div class="container">
 	<h1 class="text-center mt-5">Modifica la tua Foto</h1>
  
- 	<div class="col-6">Ritorna alla home <a href="/photo"  class="btn btn-primary">Home</a></div>
  
 	<form id="foto-form" th:object="${photo}"  th:action="@{'/photo/edit/' + *{id}}" method="post" class="mt-3">
 		
