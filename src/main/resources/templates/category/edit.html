@@ -7,20 +7,24 @@
 </head>
 <body>
 
-<div class="container">
-	<h1 class="text-center mt-5">Modifica la tua Foto</h1>
+<div th:replace="~{fragments/bootstrap :: navbar}"></div>
 
-	<div class="row">
-	 	<div class="col-6">Ritorna alla home <a href="/photo"  class="btn btn-primary">Home</a></div>
-	 	<div class="col-6">Ritorna alla home delle categorie <a href="/category"  class="btn btn-primary">Categorie</a></div>
- 	</div>
- 	
-	<form id="foto-form" th:object="${category}"  th:action="@{'/category/edit/' + *{id}}" method="post" class="mt-3">
-		
-		<div th:replace="~{fragments/form :: form-category}"></div>
-		
-	</form>
-</div>
+<main>
+	<div class="container">
+		<h1 class="text-center mt-5">Modifica la tua Foto</h1>
+	
+		<div class="row">
+		 	<div class="col-6">Ritorna alla home <a href="/photo"  class="btn btn-primary">Home</a></div>
+		 	<div class="col-6">Ritorna alla home delle categorie <a href="/category"  class="btn btn-primary">Categorie</a></div>
+	 	</div>
+	 	
+		<form id="foto-form" th:object="${category}"  th:action="@{'/category/edit/' + *{id}}" method="post" class="mt-3">
+			
+			<div th:replace="~{fragments/form :: form-category}"></div>
+			
+		</form>
+	</div>
+</main>	
 	
 <div th:replace="~{fragments/bootstrap :: script}"></div>
 </body>

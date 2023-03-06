@@ -9,27 +9,35 @@
 
 <div th:replace="~{fragments/bootstrap :: navbar}"></div>
 
-<div class="container">
-	<h1 class="text-center mt-3 mb-5">Foto</h1>
-	
-	<table th:if="${categorys.size()>0}" class="text-center table table-success table-striped">
-		<tr>
-			<th class="col-3">Nome</th>
-		</tr>
-	
-		<tr  th:each = "category : ${categorys}" th:object="${category}">
-			<td  th:text = "*{name}"></td>
-			<td >
-				<a th:href="'category/edit/' + *{id}"  class="btn btn-primary">Modifica</a>
-				<form action="#" th:action="@{'category/delete/' + *{id}}" method="post" class="mt-2">
-					<button type="submite" class="btn btn-danger">Elimina</button>
-				</form>
-			</td>
-		</tr>
-	</table>
-	<h3 th:if="${categorys.size()==0}" class="text-center">Non ci sono foto al momento</h3>
- 
-</div>
+<main>
+	<div class="container">
+		<h1 class="text-center mt-3 mb-5">Foto</h1>
+		<div class="row mb-3">
+		<div class="col-6">
+			<div>Ritorna alla home <a href="/photo"  class="btn btn-primary">Home</a></div>
+		</div>
+		<div class="col-6 text-end">Crea una nuova categoria <a href="category/create"  class="btn btn-primary">Crea</a></div>
+	</div>
+		
+		<table th:if="${categorys.size()>0}" class="text-center table table-success table-striped">
+			<tr>
+				<th class="col-3">Nome</th>
+			</tr>
+		
+			<tr  th:each = "category : ${categorys}" th:object="${category}">
+				<td  th:text = "*{name}"></td>
+				<td >
+					<a th:href="'category/edit/' + *{id}"  class="btn btn-primary">Modifica</a>
+					<form action="#" th:action="@{'category/delete/' + *{id}}" method="post" class="mt-2">
+						<button type="submite" class="btn btn-danger">Elimina</button>
+					</form>
+				</td>
+			</tr>
+		</table>
+		<h3 th:if="${categorys.size()==0}" class="text-center">Non ci sono foto al momento</h3>
+	 
+	</div>
+</main>
 
 <div th:replace="~{fragments/bootstrap :: script}"></div>
 </body>
