@@ -28,8 +28,9 @@ public class SecurityConfiguration {
 			.requestMatchers("/frontend", "/frontend/**").hasAnyAuthority("USER", "ADMIN")
 	
 			.requestMatchers("/**").permitAll()
-	
-			.and().formLogin().and().logout().and().exceptionHandling()
+			
+			.and().formLogin().defaultSuccessUrl("/frontend", true).and().logout().and().exceptionHandling()
+			
 	
 			.accessDeniedPage("/access-denied.html");
 
